@@ -5,6 +5,7 @@
             <h1 class="mt-4">Usuarios</h1>
             <a class="btn btn-outline-primary" href="{{ route('users.create') }}"><i class="fa fa-plus"></i> Agregar usuario</a>
             <a class="btn btn-outline-dark" href="{{ route('export_users') }}"><i class="fa fa-download"></i> Exportar a PDF</a>
+            <a class="btn btn-outline-danger" href="#"><i class="fa fa-download"></i> Prueba Commit GitHub</a>
             <p></p>
             @if (session('create_user'))
                 <div class="alert alert-primary">
