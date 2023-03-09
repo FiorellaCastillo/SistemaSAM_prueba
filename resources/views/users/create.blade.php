@@ -20,7 +20,8 @@
 
                 <h2>Crear usuario</h2>
                 <div class="col-6">
-                    <a href={{ route('users.index') }} class="btn btn-outline-danger"><i class="fa fa-angle-left"></i></i> Regresar</a>
+                    <a href={{ route('users.index') }} class="btn btn-outline-danger"><i class="fa fa-angle-left"></i></i>
+                        Regresar</a>
                 </div>
                 <br>
                 <form method="POST" action="{{ route('users.store') }}" class="row g-3">
@@ -95,16 +96,18 @@
 
 
                     <div class="col-12">
-                        <button type="submit" class="btn btn-outline-primary"><i class="fa fa-plus"></i> Agregar nuevo usuario</button>
+                        <button type="submit" class="btn btn-outline-primary"><i class="fa fa-plus"></i> Agregar nuevo
+                            usuario</button>
                     </div>
-                   
+
 
 
 
 
                 </form>
-
+               
             </div>
+            <script src="js/scripts.js"></script>
         </div>
 
 
