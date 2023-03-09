@@ -10,6 +10,7 @@ use App\Http\Controllers\Users\UserController;
 use App\Mail\ResetPassword;
 use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\Locations\LocationController;
+use App\Http\Controllers\SendEmailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,14 +42,17 @@ Route::post('/logout',[LoginController::class,'logout'])->name('logout');
 
 // FORGOT PASSWORD TEST
 Route::view('/forgotPassword', "forgotPassword")->name('forgotPassword');
-//MAIL TEST
-Route::get('/email', function(){
-    //return (new ResetPassword("Fio"))-> render();
-    $response = Mail::to('fiocc30@gmail.com')->send(new ResetPassword("Fio"));
+// //MAIL TEST
+// Route::get('/email', function(){
+//     //return (new ResetPassword("Fio"))-> render();
+//     $response = Mail::to('fiocc30@gmail.com')->send(new ResetPassword("Fio"));
     
-    dump($response);
-});
+//     dump($response);
+// });
 
+//MAIL TRY #1
+Route::get('/sendemail', [SendEmailController::class,'index']);
+Route::post('/sendemail/send', [SendEmailController::class,'send']);
 
 //USERS ROUTES
 Route::get('/users',[UserController::class,'index'])->name('users.index')->middleware('auth');

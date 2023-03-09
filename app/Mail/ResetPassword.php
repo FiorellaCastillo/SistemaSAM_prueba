@@ -19,9 +19,9 @@ class ResetPassword extends Mailable
      *
      * @return void
      */
-    public function __construct($name)
+    public function __construct($data)
     {
-        $this->name = $name;
+        $this->data = $data;
     }
 
     /**
@@ -41,12 +41,12 @@ class ResetPassword extends Mailable
      *
      * @return \Illuminate\Mail\Mailables\Content
      */
-    public function content()
-    {
-        return new Content(
-            view: 'email',
-        );
-    }
+    // public function content()
+    // {
+    //     return new Content(
+    //         view: 'email',
+    //     );
+    // }
 
     /**
      * Get the attachments for the message.
@@ -57,4 +57,10 @@ class ResetPassword extends Mailable
     {
         return [];
     }
+    public function build()
+    {
+        return $this->from('fiocc30@gmail.com')->subject('Prueba #1')->view('email')->with('data', $this->data);
+    }
 }
+
+?>

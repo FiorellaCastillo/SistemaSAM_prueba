@@ -31,10 +31,16 @@
                         <h3 class="text-center mb-4">Recuperar contraseña</h3>
                         <h6 class="text-center mb-2">Sistema SAM</h6>
                         <br>
+                        @if ($message = Session::get('success'))
+                        <div class="alert alert-success alert-block">
+                            <button type="button" class="close" data-dismiss="alert"></button>
+                                   <strong>{{ $message }}</strong>
+                           </div>
+                           @endif
                         <p style="text-align:justify;">En caso de que haya olvidado su contraseña, digite el correo electrónico registrado en la base de datos. Las instrucciones de recuperación 
                             de contraseña se enviarán al correo ingresado.</p>
 
-                        <form method="POST" action="" class="login-form">
+                        <form method="POST" action="{{url('/sendemail/send')}}" class="login-form">
                             @csrf
                             <div class="form-group">
                                 <input name="email_address" type="email" class="form-control rounded-left @error('email_address') is-invalid @enderror" 
@@ -51,9 +57,13 @@
                             </div>
                             
                             <div class="form-group">
-                                <button type="submit" a href="{{route('login')}}"
+                                <button type="submit" a href="{{url('/sendemail/send')}}"
                                     class="form-control btn btn-primary rounded submit px-3">Enviar link para recuperar contraseña</button></a>
-                            </div>                           
+                            </div>  
+                            <br> 
+                            <div class="w-80 text-md-right">
+                                <a href="{{route('login')}}">Iniciar Sesión</a>
+                            </div>                        
                         </form>
                     </div>
                 </div>
